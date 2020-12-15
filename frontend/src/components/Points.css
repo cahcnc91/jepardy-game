@@ -1,0 +1,11 @@
+.ui.table.profile-table-header {
+  margin-top: 0px;
+}
+
+h4.ui.header.patient-profile-header {
+  margin-bottom: 0.25rem;
+}
+
+.patient-profile-label {
+  margin-right: 0.5rem;
+}

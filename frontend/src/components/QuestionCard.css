@@ -1,0 +1,46 @@
+.ui.divider.summary-panel-divider {
+  border-bottom: 1px solid #c0c0bd !important;
+  border-top: 0 !important;
+}
+
+.patient-summary-results-header {
+  margin-left: 24px;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+div.row.patient-summary-grid {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.patient-summary-grid-column {
+  padding-right: 0.5rem;
+  width: 20% !important;
+}
+
+.summary-panel-link {
+  font-size: 12px;
+  font-weight: bold;
+  color: #0968c3;
+}
+
+.summary-panel-trend-link-outer {
+  margin-top: 8px;
+  text-align: right;
+}
+
+.summary-panel-trend-link {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.card-non-expanded {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
