@@ -15,7 +15,7 @@ const Points = ({ name, points, addPoint, subtractPoint }) => {
           <Table.Row className="profile-table-row">
             <Table.Cell width={1}>
               <p className="data-label-small-primary patient-profile-label">
-                POints: <b>{points}</b>
+                Points: <b>{points}</b>
               </p>
             </Table.Cell>
           </Table.Row>

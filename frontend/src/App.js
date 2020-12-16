@@ -1,103 +1,42 @@
-import React, { Fragment } from "react";
-import { Grid } from "semantic-ui-react";
+import React, { Fragment, useEffect, useState } from "react";
+import { Grid, Loader } from "semantic-ui-react";
 import QuestionCard from "./components/QuestionCard";
 import Header from "./components/Header";
 import useCategoryState from "./components/useCategoryState";
 import "./App.css";
-import { historyData } from "./data-mock";
 
 function App() {
+  const [categories, setCategories] = useState({});
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch("http://localhost:5000/all-categories");
+      if (data.ok) {
+        const list = await data.json();
+        setCategories(list);
+        setLoading(false);
+      } else {
+        setError("Something went wrong, please refresh the page.");
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <Fragment>
       <Header />
-      <Grid padded style={{ display: "flex", width: "100%" }}>
-        <CategoryRow data={historyData} title="History" />
-        <div className="ft-large-bold patient-summary-results-header">
-          Science
-        </div>
-        <ScienceRow />
-        <div className="ft-large-bold patient-summary-results-header">
-          General Knowledge
-        </div>
-        <GeneralKnewledgeRow />
-        <div className="ft-large-bold patient-summary-results-header">TV</div>
-        <TvRow />
-        <div className="ft-large-bold patient-summary-results-header">
-          Computer
-        </div>
-        <ComputereRow />
-      </Grid>
+      {loading ? (
+        <Loader active inline="centered" />
+      ) : (
+        <Grid padded style={{ display: "flex", width: "100%" }}>
+          <CategoryRow data={categories.history} title="History" />
+          <CategoryRow data={categories.computer} title="Computer" />
+        </Grid>
+      )}
     </Fragment>
   );
 }
-
-const ComputereRow = () => {
-  const [science, setScience] = useCategoryState();
-  return (
-    <>
-      <Grid.Row className="patient-summary-grid">
-        <Grid.Column className="patient-summary-grid-column">
-          <QuestionCard
-            group={science}
-            title="100"
-            answer="Central processing unit"
-            question={1}
-            setGroup={setScience}
-          >
-            What does CPU stand for??
-          </QuestionCard>
-        </Grid.Column>
-        <Grid.Column className="patient-summary-grid-column">
-          <QuestionCard
-            group={science}
-            title="200"
-            answer="Random Access Memory"
-            question={2}
-            setGroup={setScience}
-          >
-            What does the abbreviation RAM stand for?
-          </QuestionCard>
-        </Grid.Column>
-        <Grid.Column className="patient-summary-grid-column">
-          <QuestionCard
-            group={science}
-            title="300"
-            answer="Compact Disc Read Only Memory"
-            question={3}
-            setGroup={setScience}
-          >
-            What are the words of the acronym CD-ROM?
-          </QuestionCard>
-        </Grid.Column>
-        <Grid.Column className="patient-summary-grid-column">
-          <QuestionCard
-            group={science}
-            title="400"
-            answer="Malware"
-            question={4}
-            setGroup={setScience}
-          >
-            Which general term refers to all kinds of harmful software,
-            including viruses, worms, trojan horses, and spyware?
-          </QuestionCard>
-        </Grid.Column>
-        <Grid.Column className="patient-summary-grid-column">
-          <QuestionCard
-            group={science}
-            title="500"
-            answer="RAM"
-            question={5}
-            setGroup={setScience}
-          >
-            You'll also need memory inside your computer. Which type of memory
-            stores data only for the time your computer is turned on, but loses
-            the data at a power break?
-          </QuestionCard>
-        </Grid.Column>
-      </Grid.Row>
-    </>
-  );
-};
 
 const TvRow = () => {
   const [science, setScience] = useCategoryState();
@@ -242,10 +181,11 @@ const CategoryRow = ({ data, title }) => {
           <Grid.Column className="patient-summary-grid-column">
             <QuestionCard
               group={category}
-              title={item.points}
+              item={item}
               answer={item.answer}
               question={i + 1}
               setGroup={setCategory}
+              title={item.difficulty}
             >
               {item.question}
             </QuestionCard>
