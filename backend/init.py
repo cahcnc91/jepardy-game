@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, make_response
 from flask_cors import CORS
-from datamock import computer_data
 from dao import QuestionDao
 import mysql.connector
 
@@ -25,8 +24,14 @@ question_dao = QuestionDao(db)
 @app.route("/all-categories")
 def index():
     history = question_dao.get_list("history")
+    computer = question_dao.get_list("computer")
+    tv = question_dao.get_list("tv")
+    science = question_dao.get_list("science")
+    general = question_dao.get_list("general")
+
     response = make_response(
-        jsonify({"history": history}),
+        jsonify({"history": history, "computer": computer,
+                 "tv": tv, "science": science, "general": general}),
         200,
     )
     return response
