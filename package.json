@@ -1,0 +1,24 @@
+{
+  "name": "cs50-final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && python3 init.py",
+    "start:dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cahcnc91/jepardy-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cahcnc91/jepardy-game/issues"
+  },
+  "homepage": "https://github.com/cahcnc91/jepardy-game#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
