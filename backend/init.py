@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, request
 from flask_cors import CORS
 from dao import QuestionDao
 import mysql.connector
@@ -35,6 +35,12 @@ def index():
         200,
     )
     return response
+
+
+@app.route('/create', methods=['POST'])
+def create():
+    question_dao.add_question(request.json)
+    return "true"
 
 
 if __name__ == '__main__':

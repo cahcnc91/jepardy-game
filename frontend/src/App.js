@@ -5,12 +5,12 @@ import "./App.css";
 
 const Home = lazy(() => import("./routes/Home"));
 const Game = lazy(() => import("./routes/Game"));
+const AddQuestions = lazy(() => import("./routes/AddQuestions"));
 
 const App = () => {
   const [players, setPlayers] = useState([]);
 
   const addPlayer = (player) => {
-    console.log(player);
     setPlayers([...players, player]);
   };
 
@@ -26,6 +26,7 @@ const App = () => {
               render={() => <Home addPlayer={addPlayer} players={players} />}
             />
             <Route path="/game" render={() => <Game players={players} />} />
+            <Route path="/add-question" render={() => <AddQuestions />} />
           </Fragment>
         </Switch>
       </Suspense>
