@@ -1,4 +1,4 @@
-GET_LIST = "SELECT * FROM questions WHERE category = %s"
+GET_LIST = "SELECT * FROM questions WHERE category = %s AND difficulty = %s ORDER BY RAND() LIMIT 1"
 ADD_QUESTION = "INSERT INTO questions (question, category, answer, difficulty) VALUES (%s, %s, %s, %s)"
 
 
@@ -8,8 +8,17 @@ class QuestionDao:
 
     def get_list(self, category):
         cursor = self.__db.cursor()
-        cursor.execute(GET_LIST, (category,))
-        return translate_questions(cursor.fetchall())
+        cursor.execute(GET_LIST, (category, 100))
+        difficultyOne = cursor.fetchall()
+        cursor.execute(GET_LIST, (category, 200))
+        difficultyTwo = cursor.fetchall()
+        cursor.execute(GET_LIST, (category, 300))
+        difficultyThree = cursor.fetchall()
+        cursor.execute(GET_LIST, (category, 400))
+        difficultyFour = cursor.fetchall()
+        cursor.execute(GET_LIST, (category, 500))
+        difficultyFive = cursor.fetchall()
+        return translate_questions(difficultyOne + difficultyTwo + difficultyThree + difficultyFour + difficultyFive)
 
     def add_question(self, form):
         print(form)

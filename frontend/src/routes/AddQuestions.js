@@ -50,21 +50,25 @@ const AddQuestions = () => {
           <h2>Add question to database</h2>
         </Grid.Row>
         {success ? (
-          <h3>Success! You have submitted a question to out db!</h3>
+          <h3 style={{ padding: 0 }}>
+            Success! You have submitted a question to out db!
+          </h3>
         ) : (
-          <Form style={{ width: "50%" }}>
+          <Form style={{ width: "50%", padding: 0 }}>
             <Form.Group style={{ display: "flex", flexDirection: "column" }}>
               <Form.Input
                 label="Question"
                 id="question"
                 value={form.question}
                 onChange={changeForm}
+                className="form-input"
               />
               <Form.Input
                 label="Answer"
                 id="answer"
                 value={form.answer}
                 onChange={changeForm}
+                className="form-input"
               />
               <Form.Select
                 id={"category"}
@@ -72,6 +76,7 @@ const AddQuestions = () => {
                 options={optionsCat}
                 onChange={changeForm}
                 defaultValue={"computer"}
+                className="form-input"
               />
               <Form.Select
                 id="difficulty"
@@ -79,6 +84,7 @@ const AddQuestions = () => {
                 options={optionsDiff}
                 defaultValue={100}
                 onChange={changeForm}
+                className="form-input"
               />
               <Form.Button
                 primary={true}

@@ -40,3 +40,7 @@
     transform: rotate(360deg);
   }
 }
+
+.form-input {
+  padding-bottom: 1rem !important;
+}
