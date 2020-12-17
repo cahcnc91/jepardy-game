@@ -1,29 +1,12 @@
-history_data = [
-    {
-        "question": "Who won the popular vote in 2016 presidential election?",
-        "difficulty": 100,
-        "answer": "Hillary Clinton",
-    },
-    {
-        "question": "What year was the Declaration of Independence signed?",
-        "difficulty": 200,
-        "answer": "1776",
-    },
-    {
-        "question": "Who was the first U.S. President to be impeached?",
-        "difficulty": 300,
-        "answer": "Andrew Johnson",
-    },
-    {
-        "question": "What was the term for the official policy of racial segregation in South Africa until 1994?",
-        "difficulty": 400,
-        "answer": "Apartheid",
-    },
-    {
-        "question": "First leader of Soviet Union",
-        "difficulty": 500,
-        "answer": "Vladimir Lenin",
-    },
+history_list = [
+    ("Who won the popular vote in 2016 presidential election?",
+     "history", "Hillary Clinton", 100),
+    ("What year was the Declaration of Independence signed?", "history", "1776", 200),
+    ("Who was the first U.S. President to be impeached?",
+     "history", "Andrew Johnson", 300),
+    ("What was the term for the official policy of racial segregation in South Africa until 1994?",
+     "history", "Apartheid", 400),
+    ("First leader of Soviet Union", "history", "Vladimir Lenin", 500)
 ]
 
 computer_data = [

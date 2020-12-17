@@ -1,4 +1,5 @@
 import mysql.connector
+from datamock import history_list
 
 print('Conectando...')
 
@@ -39,10 +40,7 @@ conn.commit()
 
 # INSERT QUESTIONS
 cursor.executemany(
-    'INSERT INTO questions (question, category, answer, difficulty) VALUES (%s, %s, %s, %s)',
-    [
-        ("What does CPU stand for", "computer", "Central processing unit", 100)
-    ])
+    'INSERT INTO questions (question, category, answer, difficulty) VALUES (%s, %s, %s, %s)', history_list)
 
 cursor.execute('select * from questions')
 
