@@ -9,31 +9,15 @@ history_list = [
     ("First leader of Soviet Union", "history", "Vladimir Lenin", 500)
 ]
 
-computer_data = [
-    {
-        "question": "What does CPU stand for?",
-        "difficulty": 100,
-        "answer": "Central processing unit",
-    },
-    {
-        "question": "What does the abbreviation RAM stand for?",
-        "difficulty": 200,
-        "answer": "Random Access Memory",
-    },
-
-    {
-        "question": "What are the words of the acronym CD-ROM?",
-        "difficulty": 300,
-        "answer": "Compact Disc Read Only Memory",
-    },
-    {
-        "question": "Which general term refers to all kinds of harmful software, including viruses, worms, trojan horses, and spyware?",
-        "difficulty": 400,
-        "answer": "Malware",
-    },
-    {
-        "question": "Which type of memory stores data only for the time your computer is turned on, but lose the data at a power break?",
-        "difficulty": 500,
-        "answer": "RAM",
-    }
+computer_list = [
+    ("What does CPU stand for?", "computer", "Central processing unit", 100),
+    ("What does the abbreviation RAM stand for?",
+     "computer", "Random Access Memory", 200),
+    ("What are the words of the acronym CD-ROM?",
+     "computer", "Compact Disc Read Only Memory", 300),
+    ("Which general term refers to all kinds of harmful software, including viruses, worms, trojan horses, and spyware?",
+     "computer", "Malware", 400),
+    ("Which type of memory stores data only for the time your computer is turned on, but lose the data at a power break?", "computer", "RAM", 500)
 ]
+
+lists = computer_list + history_list

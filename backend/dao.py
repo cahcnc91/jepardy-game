@@ -1,6 +1,5 @@
 GET_LIST = "SELECT * FROM questions WHERE category = %s"
 
-
 class QuestionDao:
     def __init__(self, db):
         self.__db = db
