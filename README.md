@@ -1,6 +1,6 @@
 # JEPARDY
 
-This is a Jepardy game, backend using Flask, db is MySQL, frontend using React.
+This is a Jepardy game, backend using Flask, MySQL, frontend using React.
 
 ## Getting Started
 
@@ -38,6 +38,6 @@ It will setup a container with a MySQL db.
  ```
  It will start both flask server and dev server for the frontend.
 
- 
+
 
 
